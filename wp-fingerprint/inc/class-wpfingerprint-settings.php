@@ -131,7 +131,7 @@ class WPFingerprint_Settings{
 		return $return;
 	}
 
-	function recheck_callback()
+	static function recheck_callback()
 	{
 		wp_schedule_single_event(time(), 'wpfingerprint_run_now');
 		echo 'true';

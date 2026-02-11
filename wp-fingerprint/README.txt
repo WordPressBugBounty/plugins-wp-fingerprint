@@ -2,15 +2,24 @@
 Contributors: tnash, kayleighthorpe, danfoster
 Tags: security, plugins, checksums
 Requires at least: 4.9
-Tested up to: 6.5.4
+Tested up to: 6.8.2
 Requires PHP: 5.6
 License: GPLv3
-Stable tag: 2.1.2
+Stable tag: 2.1.3
 == Description ==
 WP Fingerprint adds an additional layer of security to your WordPress website, working to check your plugins for signs of hack or exploit. WP Fingerprint works by collecting checksums of your plugins and comparing it with the checksums collected by WP Fingerprint. If the plugin detects any abnormalities it will let you know so you can take immediate action.
 This plugin transmits and stores checksums on WP Fingerprint servers(all hosted in EU and run by 34SP.com) & WordPress.org to work for details see https://wpfingerprint.com/how-it-works/ for the data we collect and store.
 == Installation ==
-As normal click activate to activate the plugin and go make a cup of tea while it works away in the background. Allow an hour after installation for WPFingerprint to complete its first set of checks.
+Install WP Fingerprint using the plugins menu on your WordPress admin panel.
+
+When the plugin is installed, you will notice a 'WP Fingerprint' heading in the top menu bar of the admin area. This indicates the plugin is installed and running.
+
+WP Fingerprint will check your website's plugins every hour and report back if there are any tampered files found. You can also use the button on the top admin menu to queue up a manual check.
+
+If tampered plugin files are detected, they will be displayed as a warning in the plugins menu of the WordPress admin area. WP Fingerprint will display a warning below the plugin name with the directory of the file(s) that were flagged as possibly tampered with.
+
+When you have identified the files reported by WP Fingerprint, it is advised that you manually check them using your site's file browser, as false positive can occur. If you do believe the plugin has been tampered with then we recommend deleting and re-installing the plugin, or contacting your hosting provider for further assistance as your site may have more malicious content on it.
+
 == Frequently Asked Questions ==
 How does WPFingerprint work? When files on your website change, WP Fingerprint uses checksums to verify if these files are authentic. The WP Fingerprint plugin on your WordPress website runs through each of your plugins and creates a SHA-1 checksum for each file within any plugin folder it finds. It also compiles some other basic information about the plugins such as version number it sends this information back to WP Fingerprint servers to validate the checksum.
 
@@ -25,6 +34,7 @@ Will it work with Premium Plugins?
 Yes, While plugins from wordpress.org are checked directly from source. WPFingerprint crowdsources the correct checksums for plugins not found on wordpress.org. It will then return a percentage of how often it's seen changed files.
 
 == Changelog ==
+2.1.3 - fix to recheck_callback function
 2.1.2 - Bumped PHP version to PHP5.6 - 8th May 2019
 2.1 - Remove notice in admin section, refactored the primary checker, added ability to diff files if source allows, added WP-CLI commands for report and Diff - 16th October 2018
 2.0.4 - Show the source with a human friendly name, clear down logs so they are not showing spurious data
